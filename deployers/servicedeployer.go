@@ -1385,7 +1385,7 @@ func (deployer *ServiceDeployer) deleteAction(pkgname string, action *whisk.Acti
 
 	displayPreprocessingInfo(parsers.YAML_KEY_ACTION, action.Name, false)
 
-	if _, _, ok := deployer.Client.Actions.Get(action.Name); ok == nil {
+	if _, _, ok := deployer.Client.Actions.Get(action.Name, true); ok == nil {
 		var err error
 		var response *http.Response
 		err = retry(DEFAULT_ATTEMPTS, DEFAULT_INTERVAL, func() error {
