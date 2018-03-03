@@ -15,26 +15,11 @@
  * limitations under the License.
  */
 
-package cmd
-
-import (
-	"github.com/spf13/cobra"
-)
-
-// undeployCmd represents the undeploy command
-// TODO() i18n the short/long descriptions
-var undeployCmd = &cobra.Command{
-	Use:        "undeploy",
-	SuggestFor: []string{"remove"},
-	Short:      "Undeploy assets from OpenWhisk",
-	Long:       `Undeploy removes deployed assets from the manifest and deployment files`,
-	RunE:       UndeployCmdImp,
-}
-
-func UndeployCmdImp(cmd *cobra.Command, args []string) error {
-	return Undeploy()
-}
-
-func init() {
-	RootCmd.AddCommand(undeployCmd)
+/*
+ * Return a simple greeting message for the whole world.
+ */
+function main(params) {
+    msg = "Hello, " + params.name + " from " + params.place;
+    console.log(msg)
+    return { payload:  msg };
 }
